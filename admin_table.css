@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: #1a0f0a;
+    color: #fff5e6;
+    font-size: 16px;
+}
+
+header {
+    position: fixed;
+    width: 100%; /* 100% da largura disponível (100vw incluiria a barra de rolagem) */
+    top: 0;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    background: linear-gradient(135deg, #1a0f0a 0%, #3b2417 100%);
+    border-bottom: 1px solid rgba(212, 160, 23, 0.25);
+}
+
+.logo {
+    font-family: "Orbitron", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #e6b85c;
+    text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+}
+
+
+header nav ul {
+    display: flex;
+    gap: 48px;
+}
+
+header nav ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0px;
+}
+
+header nav ul a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header nav ul li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e6b85c;
+    transition: width 0.5s ease;
+}
+
+header nav ul li:hover::after {
+    width: 100%;
+}
+
+
+/*painel admin*/
+
+
+.admin-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 140px 2rem 4rem;
+}
+
+.admin-container h1 {
+    font-family: "Orbitron", sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.admin-welcome {
+    color: #d9c5a5;
+    margin-bottom: 2.5rem;
+}
+
+.admin-section {
+    margin-bottom: 3rem;
+}
+
+.admin-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.admin-section h2 {
+    font-family: "Orbitron", sans-serif;
+    color: #e6b85c;
+}
+
+.btn-add {
+    background: linear-gradient(90deg, #e6b85c, #b8730f);
+    color: #1a0f0a;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 245, 230, 0.04);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 245, 230, 0.1);
+}
+
+.admin-table th {
+    background: rgba(255, 245, 230, 0.07);
+    color: #e6b85c;
+}
+
+.admin-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.admin-actions-wrap {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 0.4rem 0.9rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-edit {
+    background: rgba(230, 184, 92, 0.2);
+    color: #e6b85c;
+    border: 1px solid #e6b85c;
+}
+
+.btn-delete {
+    background: rgba(255, 92, 92, 0.15);
+    color: #ff5c5c;
+    border: 1px solid #ff5c5c;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 420px;
+}
+
+.admin-form label {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #d9c5a5;
+}
+
+.admin-form .input {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 245, 230, 0.2);
+    background: rgba(255, 245, 230, 0.06);
+    color: #fff5e6;
+}
+
+.admin-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.admin-form .button {
+    background: linear-gradient(90deg, #e6b85c, #b8730f);
+    color: #1a0f0a;
+    padding: 0.8rem 1.6rem;
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    color: #d9c5a5;
+    text-decoration: underline;
+}
+
+
+/* ===================================================== */
+/* RESPONSIVO - MENU HAMBÚRGUER                          */
+/* O botão fica escondido no desktop e aparece abaixo de */
+/* 900px. O menu.js liga/desliga a classe "open" no nav  */
+/* ===================================================== */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 8px;
+    background: rgba(255, 245, 230, 0.06);
+    border: 1px solid rgba(212, 160, 23, 0.5);
+    color: #e6b85c;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid #e6b85c;
+    outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* o nav vira uma "gaveta" que abre logo abaixo do header */
+    header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        background: #1a0f0a;
+        transition: max-height 0.35s ease, visibility 0.35s;
+    }
+
+    header nav.open {
+        max-height: 480px;
+        visibility: visible;
+        border-bottom: 1px solid rgba(212, 160, 23, 0.25);
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 24px 16px;
+    }
+
+    header nav ul li {
+        padding: 14px 0;
+    }
+}
+
+/* ===================================================== */
+/* RESPONSIVO - PAINEL ADMIN                             */
+/* ===================================================== */
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    header {
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 100px 1rem 3rem;
+    }
+
+    .admin-section-header {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    /* a tabela mantém uma largura mínima e rola de lado dentro do wrapper */
+    .admin-table {
+        min-width: 520px;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .admin-form {
+        max-width: 100%;
+    }
+}

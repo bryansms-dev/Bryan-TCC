@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="login_2.css?v=2" rel="stylesheet">
+    <link rel="stylesheet" href="responsivo.css?v=2">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+    <title> Coffee Tasty Admin </title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1a0f0a 0%, #3b2417 100%);
+        }
+    </style>
+    <script src="menu.js?v=2" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"> Coffee Tasty </div>
+        <nav>
+            <ul>
+                <li><a href="store.php">Home</a></li>
+                <li><a href="produtos.php">Produtos</a></li>
+                <li><a href="organograma.php">Organograma</a></li>
+                <li><a href="https://api.whatsapp.com/send/?phone=5531996979344">Contato</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </header>
+
+
+    <section>
+        <form action="login.php" method="POST">
+            <div class="tela-login">
+                <h1> Login Admin </h1>
+                <input type="text" name="nome" placeholder="Nome" class="input" required>
+                <br><br>
+                <input type="password" name="senha" placeholder="Senha" class="input" required>
+                <br><br>
+                <button class="button">Entrar</button>
+                <br><br>
+                <a href="login.html">Voltar</a>
+            </div>
+        </form>
+    </section>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 245, 230, 0.35);
+    background: transparent;
+    color: #fff5e6;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+ 
+img {
+    max-width: 100%;
+}
+ 
+/* tablet */
+@media (max-width: 1024px) {
+    header nav ul {
+        gap: 28px;
+    }
+ 
+    .product-name {
+        font-size: 3rem;
+    }
+ 
+    .content {
+        padding-right: 30px;
+    }
+}
+ 
+/* celular */
+@media (max-width: 768px) {
+ 
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 16px;
+        gap: 15px;
+        background: rgba(15, 10, 8, 0.92);
+        backdrop-filter: blur(6px);
+        z-index: 100;
+    }
+ 
+    .logo {
+        font-size: 22px;
+        margin-right: auto;
+    }
+ 
+    .icons {
+        display: flex;
+        align-items: center;
+    }
+ 
+    .menu-toggle {
+        display: block;
+        transition: transform 0.3s ease;
+    }
+ 
+
+    header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0f0a08;
+ 
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+ 
+        transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0.4s;
+    }
+ 
+    header nav.open {
+        max-height: 320px;
+        opacity: 1;
+        visibility: visible;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+ 
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 8px 16px 16px;
+    }
+ 
+
+    header nav ul li {
+        display: block;
+        padding: 0;
+ 
+
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+ 
+    header nav.open ul li {
+        opacity: 1;
+        transform: none;
+    }
+ 
+    header nav.open ul li:nth-child(1) { transition-delay: 0.08s; }
+    header nav.open ul li:nth-child(2) { transition-delay: 0.14s; }
+    header nav.open ul li:nth-child(3) { transition-delay: 0.20s; }
+    header nav.open ul li:nth-child(4) { transition-delay: 0.26s; }
+    header nav.open ul li:nth-child(5) { transition-delay: 0.32s; }
+    header nav.open ul li:nth-child(6) { transition-delay: 0.38s; }
+ 
+    /*rotate do menu hambu */
+    .menu-toggle[aria-expanded="true"] {
+        transform: rotate(90deg);
+    }
+ 
+    header nav ul a {
+        display: block;
+        font-size: 18px;
+        padding: 12px 4px;
+    }
+ 
+    body {
+        overflow-x: hidden;
+    }
+ 
+    /* pgna incial */
+    .container {
+        height: 100vh;
+        height: 100dvh;
+    }
+ 
+    .container::before {
+        width: 300px;
+        height: 300px;
+    }
+ 
+    .circle:nth-child(n + 3) {
+        display: none;
+    }
+ 
+    .list {
+        width: 92%;
+    }
+ 
+    .item {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 76px 0 120px;
+        overflow-y: auto;
+    }
+ 
+    .product-img {
+        width: 100%;
+        height: 30%;
+        flex: none;
+    }
+ 
+    .product-img img {
+        max-width: 60%;
+        max-height: 100%;
+    }
+ 
+    .content {
+        width: 100%;
+        padding: 0 8px;
+        align-items: center;
+        text-align: center;
+        flex: none;
+    }
+ 
+    .product-name {
+        font-size: 1.9rem;
+        margin: 8px 0;
+    }
+ 
+    .description {
+        font-size: 0.92rem;
+        max-width: 100%;
+        margin-bottom: 16px;
+    }
+ 
+    .arrows {
+        top: 24%;
+        left: 0;
+        width: 100%;
+        padding: 0 4px;
+        pointer-events: none;
+    }
+ 
+    .arrow-btn {
+        width: 40px;
+        height: 40px;
+        pointer-events: auto;
+    }
+ 
+    .indicators {
+        bottom: 12px;
+        gap: 8px;
+    }
+ 
+    .numbers {
+        font-size: 2rem;
+    }
+ 
+    .dot {
+        width: 28px;
+    }
+ 
+
+    section {
+        padding: 2rem 1.2rem;
+    }
+ 
+    .menu .box-container {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.2rem;
+    }
+ 
+    .menu .box-container .box {
+        padding: 2.5rem 1.5rem;
+    }
+ 
+
+    @media (hover: none) {
+        .menu .box-container .box:hover {
+            background-color: transparent;
+        }
+ 
+        .menu .box-container .box:hover > * {
+            color: #fff;
+        }
+    }
+ 
+    /*organograma */
+    .org-container {
+        padding: 100px 20px 60px;
+    }
+ 
+    .org-title {
+        font-size: 1.7rem;
+    }
+ 
+    .org-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+    }
+ 
+
+    .org-node {
+        width: min(300px, 86vw);
+    }
+ 
+    .org-card {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+ 
+    .org-card img {
+        max-width: 90px;
+        height: auto;
+    }
+ 
+
+    .org-branches {
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+        margin-top: 40px;
+        padding-top: 0;
+        border-top: none;
+    }
+ 
+    .org-node.root::after {
+        bottom: -40px;
+        height: 40px;
+    }
+ 
+    .org-branches .org-node::before {
+        top: -36px;
+        height: 36px;
+    }
+ 
+    /* login admin */
+    .tela-login {
+        width: 90vw;
+        max-width: 380px;
+        padding: 32px 20px;
+        box-sizing: border-box;
+        top: 55%;
+    }
+ 
+    .tela-login .input,
+    .tela-login .button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+ 
+    /* painel admin*/
+    .admin-container {
+        padding: 100px 16px 40px;
+    }
+ 
+    .admin-section-header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+ 
+
+    .admin-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+ 
+    .admin-form {
+        max-width: 100%;
+    }
+}
+ 
+/* pra celular pequeno */
+@media (max-width: 380px) {
+    .logo {
+        font-size: 18px;
+    }
+ 
+    .product-name {
+        font-size: 1.6rem;
+    }
+}
+ 
+
+@media (prefers-reduced-motion: reduce) {
+    header nav,
+    header nav ul li,
+    .menu-toggle {
+        transition: none !important;
+    }
+}
+ 

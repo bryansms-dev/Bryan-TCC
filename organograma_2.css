@@ -1,0 +1,387 @@
+:root {
+    --main-color: #e6b85c;
+    --accent-2: #b8730f;
+    --bg-dark: #1a0f0a;
+    --bg-light: #3b2417;
+    --black: #140b07;
+    --cream: #d9c5a5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+    color: #fff5e6;
+    min-height: 100vh;
+}
+
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+    border-bottom: 1px solid rgba(212, 160, 23, 0.25);
+}
+
+.logo {
+    font-family: "Orbitron", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--main-color);
+    text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+}
+
+header nav ul {
+    display: flex;
+    gap: 40px;
+}
+
+header nav ul a {
+    text-decoration: none;
+    color: #fff5e6;
+    font-size: 1rem;
+    position: relative;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+header nav ul a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--main-color);
+    transition: width 0.5s ease;
+}
+
+header nav ul a:hover::after {
+    width: 100%;
+}
+
+
+
+.org-container {
+    padding: 140px 5vw 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.org-title {
+    font-family: "Orbitron", sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.org-title span {
+    color: var(--main-color);
+    text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+}
+
+.org-subtitle {
+    color: var(--cream);
+    font-size: 1.05rem;
+    max-width: 640px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+}
+
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* cargos de cda funcionario */
+.org-node {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.org-node.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.org-card {
+    background: rgba(255, 245, 230, 0.05);
+    border: 1px solid rgba(212, 160, 23, 0.35);
+    border-radius: 14px;
+    padding: 1.6rem 1.4rem;
+    cursor: pointer;
+    min-width: 200px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.org-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: var(--main-color);
+    box-shadow: 0 0 25px rgba(212, 160, 23, 0.5);
+    background: rgba(212, 160, 23, 0.1);
+}
+
+.org-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.org-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+
+
+.org-node.root .org-card {
+    background: linear-gradient(135deg, #3b2417 0%, #5a3823 100%);
+    border: 1px solid var(--main-color);
+    min-width: 260px;
+}
+
+.org-node.root .org-icon {
+    font-size: 2.4rem;
+}
+
+.org-node.root h3 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.2rem;
+}
+
+
+/* linhas organograma */
+
+.org-branches {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px 30px;
+    position: relative;
+    margin-top: 55px;
+    padding-top: 40px;
+    border-top: 0.2rem solid rgba(212, 160, 23, 0.4);
+}
+
+.org-node.root {
+    position: relative;
+}
+
+.org-node.root::after {
+    content: '';
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    width: 2px;
+    height: 55px;
+    background: rgba(212, 160, 23, 0.4);
+}
+
+.org-branches .org-node {
+    position: relative;
+}
+
+.org-branches .org-node::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: rgba(212, 160, 23, 0.5);
+}
+
+/* slide de descri*/
+.org-desc {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: var(--cream);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    text-align: left;
+    background: rgba(255, 245, 230, 0.04);
+    border: 1px solid rgba(212, 160, 23, 0.2);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    padding: 0 1.4rem;
+}
+
+.org-node.open .org-desc {
+    max-height: 220px;
+    opacity: 1;
+    padding: 1.2rem 1.4rem;
+}
+
+.org-node.open .org-card {
+    border-radius: 14px 14px 0 0;
+    border-color: var(--main-color);
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    header nav ul {
+        gap: 20px;
+    }
+
+    .org-title {
+        font-size: 1.8rem;
+    }
+
+    .org-card {
+        min-width: 150px;
+    }
+}
+
+
+/* ===================================================== */
+/* RESPONSIVO - MENU HAMBÚRGUER                          */
+/* O botão fica escondido no desktop e aparece abaixo de */
+/* 900px. O menu.js liga/desliga a classe "open" no nav  */
+/* ===================================================== */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 8px;
+    background: rgba(255, 245, 230, 0.06);
+    border: 1px solid rgba(212, 160, 23, 0.5);
+    color: #e6b85c;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid #e6b85c;
+    outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* o nav vira uma "gaveta" que abre logo abaixo do header */
+    header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        background: #1a0f0a;
+        transition: max-height 0.35s ease, visibility 0.35s;
+    }
+
+    header nav.open {
+        max-height: 480px;
+        visibility: visible;
+        border-bottom: 1px solid rgba(212, 160, 23, 0.25);
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 24px 16px;
+    }
+
+    header nav ul li {
+        padding: 14px 0;
+    }
+}
+
+/* ===================================================== */
+/* RESPONSIVO - TABLET E CELULAR                         */
+/* ===================================================== */
+@media (max-width: 900px) {
+    header {
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .org-container {
+        padding: 110px 20px 60px;
+    }
+
+    .org-subtitle {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    /* cargos empilhados: as linhas horizontais não funcionam quando quebram de linha */
+    .org-branches {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: 100%;
+        gap: 30px;
+        margin-top: 55px;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .org-branches .org-node::before {
+        top: -30px;
+        height: 30px;
+    }
+
+    .org-node,
+    .org-node.root {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .org-card,
+    .org-node.root .org-card {
+        min-width: 0;
+    }
+
+    .org-node.open .org-desc {
+        max-height: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .org-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* PC pequeno: evita o menu quebrar em duas linhas logo acima de 900px */
+@media (min-width: 901px) and (max-width: 1000px) {
+    header nav ul {
+        gap: 24px;
+    }
+}
